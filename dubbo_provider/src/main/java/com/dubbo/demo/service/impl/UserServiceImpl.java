@@ -18,7 +18,7 @@ import org.springframework.stereotype.Repository;
 import com.dubbo.demo.entity.User;
 import com.dubbo.demo.mapper.UserMapper;
 import com.dubbo.demo.service.UserService;
-//使用dubbo是为了注册到服务
+
 @Service("userService")
 public class UserServiceImpl implements UserService{
 
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService{
 	 
 	//@Qualifier("userMapper")
 	//@Resource(name="userMapper")
-	//@Autowired
+	@Autowired
 	private UserMapper userMapper;
 	/*@Override
 	public void getMapperByMethod(){
@@ -48,13 +48,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<User> getUserByMap(Map<String, Object> param) {
-		//这里需要优化
-		String[] xmlCfg = new String[] {"classpath:/spring/spring-mybatis.xml"}; 
-		ApplicationContext ac = new FileSystemXmlApplicationContext(xmlCfg); 
-		//System.out.println(ac.getBean("userMapper")); 
-		userMapper = (UserMapper) ac.getBean("userMapper");
-		System.out.println("userMapper Result : "+userMapper);
-		//getMapperByMethod();
+		
 		List<User> list =  userMapper.getUserByMap(param);
 		if(null != list){
 			System.out.println(this.getClass().getName()+":"+list.size());
@@ -69,8 +63,8 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void saveUser(User user) {
-		//userDao.saveUser(user);
 		
+		userMapper.saveUser(user);
 	}
 
 	public UserMapper getUserMapper() {

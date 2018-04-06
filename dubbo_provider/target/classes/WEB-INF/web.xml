@@ -5,20 +5,16 @@
 <web-app id="WebApp_1522481510878">
   <display-name>Archetype Created Web Application</display-name>
   
-  <!-- <context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-			classpath*:dubbo_provider.xml
-		</param-value>
-  </context-param> -->
   <context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			<!-- classpath*:spring/spring-mybatis.xml， -->
-			classpath*:dubbo_provider.xml
+			<!-- classpath*:dubbo_provider.xml -->
 			
+			 classpath*:dubbo_provider.xml,
+			 classpath*:spring/spring-mybatis.xml
 		</param-value>
   </context-param>
+ 
   <listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
@@ -30,8 +26,6 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
 			 classpath*:servlet-context.xml
-			 
-			<!--, classpath*:spring/spring-mybatis.xml -->
 			<!-- classpath*:spring/spring-mybatis.xml -->
 			
 			</param-value>

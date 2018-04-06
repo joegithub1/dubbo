@@ -17,7 +17,7 @@
 
 	<!-- 配置文件模式 -->
 	<!-- 具体的实现bean -->
-	<bean id="userService" class="com.dubbo.demo.service.impl.UserServiceImpl" />
+	<!-- <bean id="userService" class="com.dubbo.demo.service.impl.UserServiceImpl" /> -->
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:service interface="com.dubbo.demo.service.UserService" ref="userService" />
 	

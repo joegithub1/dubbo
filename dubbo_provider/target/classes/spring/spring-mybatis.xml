@@ -22,11 +22,10 @@
       http://www.springframework.org/schema/tx/spring-tx.xsd">
 	         
 	
-	<context:component-scan base-package="com.dubbo.demo">
+	<!-- <context:component-scan base-package="com.dubbo.demo">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-		 <!-- <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/> -->
-	</context:component-scan>
-	
+	</context:component-scan> -->
+	<context:component-scan base-package="com.dubbo.demo" />
 	<!-- 默认的注解映射的支持 -->
     <mvc:annotation-driven />
 	
@@ -120,7 +119,7 @@
 	</tx:advice>
 	<!-- aop -->
 	<aop:config>
-        <aop:pointcut id="productServiceMethods" expression="(execution(* com.dubbo.demo.service.*.*(..))   )" />
+        <aop:pointcut id="productServiceMethods" expression="execution(* com.dubbo.demo.service.*.*(..))" />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="productServiceMethods" />
 	</aop:config>
 	
