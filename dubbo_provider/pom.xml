@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>dubbo</artifactId>
+    <groupId>cn.dubbo.demo</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>cn.dubbo.demo</groupId>
+  <artifactId>dubbo_provider</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>dubbo_provider Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- spring版本号 -->
+    <spring.version>4.1.3.RELEASE</spring.version>
+  	<!-- mybatis版本号 -->
+    <mybatis.version>3.2.6</mybatis.version>
+    <!-- log4j日志文件管理包版本 -->
+    <slf4j.version>1.7.7</slf4j.version>
+    <log4j.version>1.2.6</log4j.version>
+  </properties>
+  
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- 依赖于  dubbo_service -->
+    <!-- <dependency>
+    	<groupId>cn.dubbo.demo</groupId>
+    	<artifactId>dubbo_service</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+    </dependency> -->
+    <dependency>
+    	<groupId>cn.dubbo.demo</groupId>
+    	<artifactId>dubbo_api</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-core</artifactId>
+		<version>4.1.3.RELEASE</version>
+	</dependency>
+    
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>4.1.3.RELEASE</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>dubbo</artifactId>
+		<version>2.5.3</version>
+		<exclusions>
+			<exclusion>
+				<artifactId>spring</artifactId>
+				<groupId>org.springframework</groupId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.zookeeper</groupId>
+		<artifactId>zookeeper</artifactId>
+		<version>3.4.8</version>
+		<exclusions>
+			<exclusion>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>1.2.16</version>
+	</dependency>
+	<dependency>
+		<groupId>com.github.sgroschupf</groupId>
+		<artifactId>zkclient</artifactId>
+		<version>0.1</version>
+	</dependency>    
+    
+    <!-- mybatis核心包 -->
+    <dependency>
+     <groupId>org.mybatis</groupId>
+     <artifactId>mybatis</artifactId>
+     <version>${mybatis.version}</version>  
+    </dependency>
+    <!-- spring mybatis -->
+    <dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	    <version>1.3.2</version>
+	</dependency>
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>5.1.18</version>
+	</dependency>
+    <!-- 数据源 -->        
+     <dependency>
+	    <groupId>com.mchange</groupId>
+	    <artifactId>c3p0</artifactId>
+	    <version>0.9.5</version>
+	</dependency> 
+	<!-- spring jdbc --> 
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>3.0.4.RELEASE</version>
+	</dependency>
+	<!--mybatis 依赖的 插件 -->
+	<dependency>
+		<groupId>aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+		<version>1.5.4</version>
+	</dependency>
+	     
+  </dependencies>
+  <build>
+    <finalName>dubbo_provider</finalName>
+  </build>
+  
+  
+  
+  
+  
+  
+  
+  
+</project>

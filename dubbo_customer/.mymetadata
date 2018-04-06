@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="dubbo_customer Maven Webapp"
+  id="myeclipse.1521096692273"
+  context-root="/dubbo_customer"
+  j2ee-spec="6.0"
+  archive="dubbo_customer Maven Webapp.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
