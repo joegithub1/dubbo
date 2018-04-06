@@ -63,8 +63,8 @@ public class UserServiceImpl implements UserService{
 		}
 		System.out.println(userMapper);
 		
-	//	return list;
-		return null;
+		return list;
+		//return null;
 	}
 
 	@Override
