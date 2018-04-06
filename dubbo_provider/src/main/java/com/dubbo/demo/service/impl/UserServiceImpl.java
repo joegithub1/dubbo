@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService{
 	 
 	//@Qualifier("userMapper")
 	//@Resource(name="userMapper")
-	@Autowired
+	//@Autowired
 	private UserMapper userMapper;
 	/*@Override
 	public void getMapperByMethod(){
@@ -48,12 +48,12 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<User> getUserByMap(Map<String, Object> param) {
-		/*String[] xmlCfg = new String[] {"classpath:/spring/spring-mybatis.xml"}; 
+		//这里需要优化
+		String[] xmlCfg = new String[] {"classpath:/spring/spring-mybatis.xml"}; 
 		ApplicationContext ac = new FileSystemXmlApplicationContext(xmlCfg); 
 		//System.out.println(ac.getBean("userMapper")); 
 		userMapper = (UserMapper) ac.getBean("userMapper");
-		System.out.println("userMapper Result : "+userMapper);*/
-		//这里需要优化
+		System.out.println("userMapper Result : "+userMapper);
 		//getMapperByMethod();
 		List<User> list =  userMapper.getUserByMap(param);
 		if(null != list){
