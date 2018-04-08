@@ -19,8 +19,9 @@
 	<!-- 具体的实现bean -->
 	<!-- <bean id="userService" class="com.dubbo.demo.service.impl.UserServiceImpl" /> -->
 	<!-- 声明需要暴露的服务接口 -->
-	<dubbo:service interface="com.dubbo.demo.service.UserService" ref="userService" />
+	<dubbo:service interface="com.dubbo.demo.service.UserService" ref="userService" timeout="300000"/>
 	
+	<dubbo:service interface="com.dubbo.demo.service.DeptartmentService" ref="deptartmentService" timeout="300000"/>
 	
 	<!-- 注解模式   感觉不应该在这个里面扫描，应该在dubbo_service的doubbo配置文件中扫描实现类-->
 	<!-- 相当于 <bean id="userService" class="com.demo.demo.service.impl.UserServiceImpl" /> -->
