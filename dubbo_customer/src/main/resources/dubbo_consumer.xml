@@ -7,11 +7,12 @@
     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     
     
-    <dubbo:application name="dubbo_consumer"/>
+    <dubbo:application name="dubbo_consumer_demo"/>
     
-    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+    <dubbo:registry id="zk_1" address="zookeeper://127.0.0.1:2181"/>
+    <dubbo:registry id="zk_2" address="zookeeper://127.0.0.1:2182" default="false"/>
+    <dubbo:registry id="zk_3" address="zookeeper://127.0.0.1:2183" default="false"/>
+    <dubbo:reference registry="zk_1,zk_2,zk_3" interface="com.dubbo.demo.service.UserService" id="userService" check="false" timeout="300000" />
     
-    <dubbo:reference interface="com.dubbo.demo.service.UserService" id="userService" check="false" timeout="300000" />
-    
-    <dubbo:reference interface="com.dubbo.demo.service.DeptartmentService" id="deptartmentService"  check="false" timeout="300000"/>
+    <dubbo:reference registry="zk_1,zk_2,zk_3" interface="com.dubbo.demo.service.DeptartmentService" id="deptartmentService"  check="false" timeout="300000"/>
 </beans>    

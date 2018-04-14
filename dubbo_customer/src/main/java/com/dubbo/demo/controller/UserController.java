@@ -25,10 +25,8 @@ public class UserController {
 		@RequestMapping("/users")
 		@ResponseBody
 		public String userList(){
-			System.out.println("helllllllll");
 			String str = userService.sayHello();
 			userService.getUserByMap(null);
-			//userService.saveUser(null);
 			return str;
 		}
 		@RequestMapping("/saveuser")

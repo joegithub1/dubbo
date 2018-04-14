@@ -7,21 +7,23 @@
     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 	<!-- 提供方应用信息，用于计算依赖关系 -->
-	<dubbo:application name="dubbo_provider" />
+	<dubbo:application name="${dubbo.application}" />
 
 	<!-- 使用zookeeper注册中心暴露服务地址 -->
-	<dubbo:registry address="zookeeper://127.0.0.1:2181" />
+	<dubbo:registry id="zk_1" address="zookeeper://127.0.0.1:2181" />
+	<dubbo:registry id="zk_2" address="zookeeper://127.0.0.1:2182" default="false"/> 
+	<dubbo:registry id="zk_3" address="zookeeper://127.0.0.1:2183" default="false"/>
 	
 	<!-- 用dubbo协议在20880端口暴露服务 -->
-	<dubbo:protocol name="dubbo" />
+	<dubbo:protocol name="dubbo" port="20880"/>
 
 	<!-- 配置文件模式 -->
 	<!-- 具体的实现bean -->
 	<!-- <bean id="userService" class="com.dubbo.demo.service.impl.UserServiceImpl" /> -->
 	<!-- 声明需要暴露的服务接口 -->
-	<dubbo:service interface="com.dubbo.demo.service.UserService" ref="userService" timeout="300000"/>
+	<dubbo:service registry="zk_1,zk_2,zk_3" interface="com.dubbo.demo.service.UserService" ref="userService" timeout="${dubbo.timeout}"/>
 	
-	<dubbo:service interface="com.dubbo.demo.service.DeptartmentService" ref="deptartmentService" timeout="300000"/>
+	<dubbo:service registry="zk_1,zk_2,zk_3" interface="com.dubbo.demo.service.DeptartmentService" ref="deptartmentService" timeout="${dubbo.timeout}"/>
 	
 	<!-- 注解模式   感觉不应该在这个里面扫描，应该在dubbo_service的doubbo配置文件中扫描实现类-->
 	<!-- 相当于 <bean id="userService" class="com.demo.demo.service.impl.UserServiceImpl" /> -->
